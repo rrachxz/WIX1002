@@ -85,6 +85,8 @@ public class q1 {
                             case 6:
                                 System.out.print("Saturday\n");
                                 break;
+            default:
+                    System.out.print("Invalid input\n");
         }
 
     }
