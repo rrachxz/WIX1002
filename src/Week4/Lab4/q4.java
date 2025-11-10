@@ -16,15 +16,15 @@ public class q4 {
         int daystoMay = 31 + (isLeap(year) ? 29 : 28) + 31 + 30;
         int daystoAug = daystoMay + 31 + 30 + 31;
 
-        displayCalendar((d1 + daystoMay) % 7, year, "May", 31);
-        displayCalendar((d1 + daystoAug) % 7, year, "August", 31);
+        calendar((d1 + daystoMay) % 7, year, "May", 31);
+        calendar((d1 + daystoAug) % 7, year, "August", 31);
     }
 
     static boolean isLeap(int year) {
         return (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0));
     }
 
-    static void displayCalendar(int dayinWeek, int year, String month, int daysinMonth) {
+    static void calendar(int dayinWeek, int year, String month, int daysinMonth) {
 
         System.out.printf("\nCalendar for %s %d\n", month, year);
         System.out.println("┌─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
