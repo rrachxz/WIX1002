@@ -1,7 +1,5 @@
 package Week4.Lab4;
 
-import java.util.Scanner;
-
 public class q5 {
     public static void main(String[] args) {
         int p1 = 0, p2 = 0, dice; boolean isOneTurn = true;
