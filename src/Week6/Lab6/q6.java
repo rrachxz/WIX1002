@@ -18,12 +18,7 @@ public class q6 {
             }
 
             if (number == reverse(number) && number != reverse(number) && prime(number)) {
-                System.out.println(number);
-                if (i < num - 1) {
-                    System.out.print(", ");
-                } else {
-                    System.out.println();
-                }
+                System.out.print(number + (i < num - 1 ? ", " : "\n"));
             }
 
             number++;
@@ -36,12 +31,7 @@ public class q6 {
 
         while (i < num) {
             if (prime(number) && number != reverse(number) && prime(reverse(number))){
-                System.out.println(number);
-                if (i < num - 1) {
-                    System.out.print(", ");
-                } else {
-                    System.out.println();
-                }
+                System.out.print(number + (i < num - 1 ? ", " : "\n"));
             }
         }
     }
