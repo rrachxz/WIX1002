@@ -11,6 +11,7 @@ public class q3 {
         System.out.print("Enter 10 integers between spaces: ");
         for (int i = 0; i < 10; i++) {
             reverse[i] = num.reserve(input.nextInt());
+            System.out.print(reverse[i] + " ");
         }
     }
 
