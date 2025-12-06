@@ -1,6 +1,7 @@
 package Week6.Lab6;
 
 import java.util.Scanner;
+import static java.lang.Math.sqrt;
 
 public class q6 {
     public static void main(String[] args) {
@@ -9,45 +10,61 @@ public class q6 {
         num.dsiplayEmirp(20);
     }
 
-    private void displayPalindromicPrime(int num) {
-        int i = 0, number = 2;
-        System.out.println("first 20 palindromic prime numbers: ");
-        while (i < num) {
-            if (((((int) Math.log10(number) + 1) % 2 == 0) && !(((int) Math.log10(number) + 1) == 2))) {
-                number = (int) (number * Math.pow(10, (int) Math.log10(number) + 1));
-            }
+    private void displayPalindromicPrime(int count) {
+        int foundCount = 0;
+        int number = 2;
 
-            if (number == reverse(number) && number != reverse(number) && prime(number)) {
-                System.out.print(number + (i < num - 1 ? ", " : "\n"));
-            }
+        System.out.println("first " + count + " palindromic prime numbers:");
+        while (foundCount < count) {
+            if (prime(number)) {
+                if (number == reverse(number)) {
+                    System.out.print(number + (foundCount < count - 1 ? ", " : ""));
+                    foundCount++;
 
+                    if (foundCount % 10 == 0) {
+                        System.out.println();
+                    }
+                }
+            }
             number++;
         }
     }
 
-    private void dsiplayEmirp(int num) {
-        int i = 0, number = 13;
-        System.out.println("first 20 emirp numbers: ");
+    private void dsiplayEmirp(int count) {
+        int foundCount = 0;
+        int number = 13;
 
-        while (i < num) {
-            if (prime(number) && number != reverse(number) && prime(reverse(number))){
-                System.out.print(number + (i < num - 1 ? ", " : "\n"));
+        System.out.println("\nfirst " + count + " emirp numbers:");
+
+        while (foundCount < count) {
+            int reversedNum = reverse(number);
+
+            if (prime(number) && (number != reversedNum) && prime(reversedNum)) {
+                System.out.print(number + (foundCount < count - 1 ? ", " : ""));
+                foundCount++;
+
+                if (foundCount % 10 == 0) {
+                    System.out.println();
+                }
             }
+            number++;
         }
     }
 
     static int reverse(int num) {
-        int reverse = 0;
+        int reversed = 0;
         while (num > 0) {
-            reverse = reverse * 10 + num % 10;
+            reversed = reversed * 10 + num % 10;
             num /= 10;
-        } return  reverse;
+        } return  reversed;
     }
 
     static boolean prime(int num) {
-        int prime = 1;
-        for (int i = 2; i < Math.sqrt(num); i++) {
-            if (num % i == 0) {return false;}
+        if (num <= 1) return false;
+        for (int i = 2; i <= sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
