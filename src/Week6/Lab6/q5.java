@@ -18,7 +18,7 @@ public class q5 {
             b = (int)(Math.random() * 12);
 
             System.out.print(a + " x "  + b + " = ");
-            input.nextInt();
+            inp = input.nextInt();
 
             if (a * b == inp) {
                 score++;
